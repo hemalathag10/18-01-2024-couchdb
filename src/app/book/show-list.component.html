@@ -1,0 +1,25 @@
+<!-- book-list.component.html -->
+
+<div *ngFor="let book of books">
+  <!-- Display book details -->
+  <div *ngIf="editingbookId !== book._id">
+    <h2>{{ book.title }}</h2>
+    <p>{{ book.content }}</p>
+    <button (click)="editbook(book._id)">Edit</button>
+    <button (click)="deletebook(book._id, book._rev)">Delete</button>
+  </div>
+
+  <!-- Display edit form when editing -->
+  <div *ngIf="editingbookId === book._id">
+    <label for="editedTitle">Title:</label>
+    <input id="editedTitle" (input)="updateEditedTitle($event)" />
+
+    <label for="editedContent">Content:</label>
+    <textarea id="editedContent" (input)="updateEditedContent($event)"></textarea>
+
+    
+
+    <button (click)="saveEditedbook(book._id)">Save Changes</button>
+    <button (click)="cancelEdit()">Cancel</button>
+  </div>
+</div>

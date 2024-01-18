@@ -1,0 +1,12 @@
+Postman:
+Retrieve all post : GET http://localhost:5984/demo/_design/blog/posts
+
+Retrieve specific post : GET http://localhost:5984/demo/_design/blog/_view/post_by_id?key="your_post_id"
+
+Post new blog_post : POST http://localhost:5984/demo
+
+DELETE specific post : http://localhost:5984/demo/post?rev=3-0a5c30c56a166d785dc31b4cbb539228
+first, rev is retrieved by get request, then use it
+
+PUT = UPDATE specific post : 1st rev is retrieved by get request, then using PUT request update the field and rev must be mentioned in body of the request
+http://localhost:5984/demo/"your post id"
